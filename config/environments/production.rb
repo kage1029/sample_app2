@@ -1,7 +1,4 @@
 Rails.application.configure do
-  config.assets.initialize_on_precompile = false
-  config.assets.compile = true
-  config.assets.js_compressor = Uglifier.new(harmony: true)
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
