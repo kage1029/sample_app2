@@ -7,7 +7,6 @@ ruby '2.6.3'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'bcrypt', '3.1.12'
 gem "bootstrap-sass", ">= 3.4.1"
-gem 'uglifier', '~> 2.7'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', groups: %w(test development), require: false
 # Use Puma as the app server
@@ -55,6 +54,11 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+end
+
+group :development, :production, :test do
+  gem 'devise'
+  gem 'jquery-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
