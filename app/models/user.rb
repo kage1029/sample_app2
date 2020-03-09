@@ -26,11 +26,11 @@ class User < ApplicationRecord
 
   # 永続セッションのためにユーザーをデータベースに記憶する
   def remember
-    self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
+    self._token = User.new_token
+    update_attribute(:_digest, User.digest(_token))
   end
 
-  # 渡されたトークンがダイジェストと一致したらtrueを返す
+  # トークンがダイジェストと一致したらtrueを返す
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
@@ -39,7 +39,7 @@ class User < ApplicationRecord
 
   # ユーザーのログイン情報を破棄する
   def forget
-    update_attribute(:remember_digest, nil)
+    update_attribute(:_digest, nil)
   end
 
   # アカウントを有効にする
